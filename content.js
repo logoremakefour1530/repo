@@ -1,17 +1,19 @@
-const BUTTON_ID = 'github-spotify-music-button';
+const BUTTON_ID = 'github-youtube-video-button';
 
-function addMusicButton() {
+function addVideoButton() {
   if (document.getElementById(BUTTON_ID)) return;
+
   const button = document.createElement('button');
   button.id = BUTTON_ID;
-  button.className = 'github-spotify-music-button';
+  button.className = 'github-youtube-video-button';
   button.type = 'button';
-  button.innerHTML = '<span aria-hidden="true">●</span> Music';
-  button.title = 'Open Spotify Music';
+  button.innerHTML = '<span class="github-youtube-play" aria-hidden="true">▶</span><span>Video</span>';
+  button.title = 'Open YouTube Player';
   button.addEventListener('click', () => chrome.runtime.sendMessage({ type: 'open-player' }));
+
   const target = document.querySelector('header.AppHeader, header, .AppHeader-globalBar') || document.body;
   target.appendChild(button);
 }
 
-addMusicButton();
-new MutationObserver(addMusicButton).observe(document.documentElement, { childList: true, subtree: true });
+addVideoButton();
+new MutationObserver(addVideoButton).observe(document.documentElement, { childList: true, subtree: true });

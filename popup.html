@@ -3,33 +3,39 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Spotify Music</title>
+  <title>YouTube Player</title>
   <link rel="stylesheet" href="popup.css">
 </head>
 <body>
   <main class="app">
     <header>
-      <div class="brand"><span class="spotify-mark">●</span><div><h1>Spotify Music</h1><p>For your GitHub flow</p></div></div>
+      <div class="brand">
+        <span class="youtube-mark" aria-hidden="true">▶</span>
+        <div><h1>YouTube Player</h1><p>For your GitHub flow</p></div>
+      </div>
       <button id="settings" class="icon-button" title="Settings" aria-label="Settings">⚙</button>
     </header>
 
     <form id="player-form" class="card">
-      <label for="spotify-url">Paste a Spotify link</label>
-      <div class="url-row"><input id="spotify-url" type="url" placeholder="https://open.spotify.com/track/..." autocomplete="off" required><button type="submit">Play</button></div>
+      <label for="youtube-url">Paste a YouTube link</label>
+      <div class="url-row">
+        <input id="youtube-url" type="url" placeholder="https://youtube.com/watch?v=..." autocomplete="off" required>
+        <button class="primary-button" type="submit">Play</button>
+      </div>
       <p id="error" class="error" role="alert"></p>
     </form>
 
     <section id="player" class="player card" hidden>
-      <div class="player-heading"><span>NOW PLAYING</span><button id="close-player" class="text-button">Clear</button></div>
-      <iframe id="spotify-frame" title="Spotify player" src="about:blank" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+      <div class="player-heading"><span>NOW PLAYING</span><button id="close-player" class="text-button" type="button">Clear</button></div>
+      <div class="video-frame-wrap"><iframe id="youtube-frame" title="YouTube video player" src="about:blank" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
     </section>
 
     <section class="card quick-links">
-      <div class="section-heading"><h2>Find something to play</h2><span>↗</span></div>
-      <a href="https://open.spotify.com/search" target="_blank" rel="noopener">Search Spotify <span>→</span></a>
-      <a href="https://open.spotify.com/playlist/37i9dQZF1DWWQRwui0ExPn" target="_blank" rel="noopener">Deep Focus <span>→</span></a>
+      <div class="section-heading"><h2>Find something to watch</h2><span>↗</span></div>
+      <a href="https://www.youtube.com/" target="_blank" rel="noopener">Open YouTube <span>→</span></a>
+      <a href="https://www.youtube.com/feed/trending" target="_blank" rel="noopener">Trending videos <span>→</span></a>
     </section>
-    <p class="hint">Tip: pin this extension for one-click music on GitHub.</p>
+    <p class="hint">Tip: pin this extension for one-click videos on GitHub.</p>
   </main>
   <script src="popup.js"></script>
 </body>

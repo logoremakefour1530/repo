@@ -1,17 +1,16 @@
 {
   "manifest_version": 3,
-  "name": "GitHub Spotify Music",
+  "name": "GitHub YouTube Player",
   "version": "1.0.0",
-  "description": "Listen to Spotify while you work on GitHub, with a compact player available on every GitHub page.",
-  "permissions": ["storage", "tabs"],
-  "host_permissions": ["https://open.spotify.com/*", "https://github.com/*"],
+  "description": "Watch YouTube videos while you work on GitHub, with a compact player available from any GitHub page.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://www.youtube.com/*", "https://youtube.com/*", "https://youtu.be/*", "https://github.com/*"],
   "action": {
-    "default_title": "Spotify Music",
+    "default_title": "YouTube Player",
     "default_popup": "popup.html"
   },
   "background": {
-    "service_worker": "background.js",
-    "type": "module"
+    "service_worker": "background.js"
   },
   "content_scripts": [
     {
