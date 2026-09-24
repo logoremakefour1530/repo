@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "GitHub Spotify Music",
+  "version": "1.0.0",
+  "description": "Listen to Spotify while you work on GitHub, with a compact player available on every GitHub page.",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": ["https://open.spotify.com/*", "https://github.com/*"],
+  "action": {
+    "default_title": "Spotify Music",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_page": "options.html"
+}

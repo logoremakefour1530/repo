@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spotify Music</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <div class="brand"><span class="spotify-mark">●</span><div><h1>Spotify Music</h1><p>For your GitHub flow</p></div></div>
+      <button id="settings" class="icon-button" title="Settings" aria-label="Settings">⚙</button>
+    </header>
+
+    <form id="player-form" class="card">
+      <label for="spotify-url">Paste a Spotify link</label>
+      <div class="url-row"><input id="spotify-url" type="url" placeholder="https://open.spotify.com/track/..." autocomplete="off" required><button type="submit">Play</button></div>
+      <p id="error" class="error" role="alert"></p>
+    </form>
+
+    <section id="player" class="player card" hidden>
+      <div class="player-heading"><span>NOW PLAYING</span><button id="close-player" class="text-button">Clear</button></div>
+      <iframe id="spotify-frame" title="Spotify player" src="about:blank" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+    </section>
+
+    <section class="card quick-links">
+      <div class="section-heading"><h2>Find something to play</h2><span>↗</span></div>
+      <a href="https://open.spotify.com/search" target="_blank" rel="noopener">Search Spotify <span>→</span></a>
+      <a href="https://open.spotify.com/playlist/37i9dQZF1DWWQRwui0ExPn" target="_blank" rel="noopener">Deep Focus <span>→</span></a>
+    </section>
+    <p class="hint">Tip: pin this extension for one-click music on GitHub.</p>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>
